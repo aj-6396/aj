@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { GraduationCap, MapPin, Briefcase } from "lucide-react";
+import { SpidermanCrouching } from "@/components/ui/SpidermanTheme";
 
 export default function About() {
   return (
-    <div className="container mx-auto px-6 md:px-12 py-16">
+    <div className="container mx-auto px-6 md:px-12 py-16 relative">
+      <SpidermanCrouching />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

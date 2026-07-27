@@ -3,15 +3,20 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Download, Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
-import { PERSONAL_INFO } from "@/data/portfolioData";
+import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/Icons";
+import { SpidermanHeroShooting } from "@/components/ui/SpidermanTheme";
+import { PERSONAL_INFO, PROJECTS } from "@/data/portfolioData";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] overflow-hidden">
-      {/* Background glow effects */}
+    <main className="flex flex-col items-center justify-start w-full overflow-hidden">
+      <section className="relative flex flex-col items-center justify-start md:justify-center min-h-[calc(100vh-5rem)] pt-6 pb-12 md:py-0 w-full">
+        {/* Background glow effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+
+      {/* Spiderman Theme Elements */}
+      <SpidermanHeroShooting />
 
       <div className="container mx-auto px-6 md:px-12 flex flex-col items-center text-center z-10">
         
@@ -19,14 +24,12 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-8 relative"
+          className="mb-8 relative shrink-0"
         >
-          {/* Professional Portrait Placeholder */}
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 glass-card p-1">
+          {/* Professional Portrait */}
+          <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 glass-card p-1">
             <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden relative">
-              {/* Replace with actual image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-800 to-slate-700" />
-              <span className="text-4xl text-slate-500 font-bold z-10">AS</span>
+              <img src="/profile.png" alt="Ambuj Singh" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="absolute -bottom-2 -right-2 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white/10">
@@ -105,8 +108,55 @@ export default function Home() {
           >
             <LinkedinIcon size={24} />
           </a>
+          <a 
+            href={PERSONAL_INFO.socials.instagram} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-slate-500 hover:text-white transition-colors p-2 rounded-full hover:bg-white/5"
+            aria-label="Instagram"
+          >
+            <InstagramIcon size={24} />
+          </a>
         </motion.div>
       </div>
-    </div>
+      </section>
+
+      {/* Featured Projects Preview */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-24 z-10 relative">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Selected <span className="text-slate-500">Work</span></h2>
+            <p className="text-slate-400 max-w-xl">A glimpse into some of my recent projects. Check out the full portfolio for more.</p>
+          </div>
+          <Link href="/projects" className="hidden md:flex items-center text-slate-400 hover:text-white transition-colors">
+            View all projects <ArrowRight size={16} className="ml-2" />
+          </Link>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {PROJECTS.slice(0, 2).map((project: any, i: number) => (
+            <Link href={`/projects/${project.id}`} key={project.id} className="group glass-card p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-all duration-300">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl font-bold group-hover:text-accent transition-colors">{project.title}</h3>
+                <ArrowRight className="text-slate-500 group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
+              </div>
+              <p className="text-slate-400 mb-6">{project.subtitle}</p>
+              <div className="flex flex-wrap gap-2">
+                {(project.techStack || []).slice(0, 3).map((tech: string) => (
+                  <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-xs text-slate-300">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 md:hidden">
+          <Link href="/projects" className="flex items-center justify-center w-full glass py-4 rounded-xl text-slate-300 hover:text-white transition-colors">
+            View all projects <ArrowRight size={16} className="ml-2" />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

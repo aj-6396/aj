@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SpidermanGlobalWebs } from "@/components/ui/SpidermanTheme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#07070C] text-slate-100 min-h-screen flex flex-col`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-[#07070C] text-white min-h-screen flex flex-col selection:bg-accent selection:text-white`}>
+        <SpidermanGlobalWebs />
         <div className="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none -z-10" />
         <Navbar />
-        <main className="flex-grow flex flex-col relative w-full pt-20">
+        <main className="flex-grow flex flex-col relative w-full pt-20 z-0">
           {children}
         </main>
         <Footer />
@@ -39,3 +39,4 @@ export default function RootLayout({
     </html>
   );
 }
+

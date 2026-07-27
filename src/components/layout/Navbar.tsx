@@ -85,7 +85,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 glass border-t border-white/5 py-4 px-6 flex flex-col space-y-4 md:hidden"
+            className="absolute top-full left-0 right-0 bg-[#07070C] border-b border-white/5 py-6 px-6 flex flex-col space-y-4 md:hidden shadow-2xl"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.path || (link.path !== "/" && pathname?.startsWith(link.path));

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/Icons";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 
 export function Footer() {
@@ -68,3 +68,4 @@ export function Footer() {
     </footer>
   );
 }
+

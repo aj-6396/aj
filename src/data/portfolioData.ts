@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
     github: 'https://github.com/aj-6396',
     linkedin: 'https://www.linkedin.com/in/ambujsingh07/',
     instagram: 'https://www.instagram.com/its._.aj_7/',
-    email: 'ambuj.singh@bhu.ac.in',
+    email: 'ambujsingh.sci.2024@bhu.ac.in',
   }
 };
 
