@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Colors */
+  --color-background: #07070C;
+  --color-foreground: #F9FAFB;
+  --color-primary: #111827;
+  --color-primary-foreground: #F9FAFB;
+  --color-secondary: #1E293B;
+  --color-secondary-foreground: #F9FAFB;
+  --color-accent: #E11D48;
+  --color-accent-foreground: #F9FAFB;
+  --color-muted: #334155;
+  --color-muted-foreground: #94A3B8;
+  --color-border: #1E293B;
+  
+  /* Spacing */
+  --spacing-8: 0.5rem;
+  --spacing-16: 1rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-64: 4rem;
+  --spacing-128: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 33% 17%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 347 77% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 347 77% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(11, 15, 25, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-hover:hover {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+/* Subtle Grid Background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
