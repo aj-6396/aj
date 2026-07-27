@@ -251,6 +251,14 @@ export const TIMELINE: TimelineItem[] = [
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
+    id: 'icsc-2026-prefinalist',
+    title: 'Pre-Finalist of International Computer Science Competition (ICSC)',
+    issuer: 'ICSC 2026 International Panel',
+    year: '2026',
+    badge: '🌐',
+    description: 'Selected as Pre-Finalist in the prestigious International Computer Science Competition 2026.'
+  },
+  {
     id: 'dean-felicitation',
     title: 'Felicitation by Dean of Students, BHU',
     issuer: 'Banaras Hindu University (Prof. Ranjan Kumar Singh)',

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Download, Mail, GraduationCap, Briefcase, Code2, User } from "lucide-react";
+import { ArrowRight, Download, Mail, GraduationCap, Briefcase, Code2, User, Trophy } from "lucide-react";
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/Icons";
 import { SpidermanHeroShooting } from "@/components/ui/SpidermanTheme";
 import { PERSONAL_INFO, PROJECTS } from "@/data/portfolioData";
@@ -140,7 +140,7 @@ export default function Home() {
               I am a Math & Computer Science undergraduate at <strong className="text-white font-medium">Banaras Hindu University (BHU)</strong>, currently serving as the <strong className="text-white font-medium">IT Head @ Kalki Foundation</strong> and <strong className="text-white font-medium">Founder & Secretary @ The Debuggers BHU</strong>. I bridge computational mathematics with modern frontend engineering to build impactful, high-performance web solutions.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               <div className="flex items-center p-4 rounded-xl bg-white/5 border border-white/5">
                 <div className="p-2.5 bg-accent/10 rounded-lg text-accent mr-3.5">
                   <GraduationCap size={20} />
@@ -157,7 +157,17 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="text-xs text-slate-400 font-medium">Leadership</div>
-                  <div className="text-sm text-white font-semibold">IT Head @ Kalki Foundation</div>
+                  <div className="text-sm text-white font-semibold">IT Head @ Kalki</div>
+                </div>
+              </div>
+
+              <div className="flex items-center p-4 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-2.5 bg-amber-500/10 rounded-lg text-amber-400 mr-3.5">
+                  <Trophy size={20} />
+                </div>
+                <div>
+                  <div className="text-xs text-slate-400 font-medium">Global Honor</div>
+                  <div className="text-sm text-white font-semibold">ICSC 2026 Pre-Finalist</div>
                 </div>
               </div>
             </div>
